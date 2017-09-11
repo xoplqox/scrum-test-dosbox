@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\Library\CmdExit.cs" />
     <Compile Include="Interfaces\IDrive.cs" />
     <Compile Include="Interfaces\IExecuteCommand.cs" />
     <Compile Include="Program.cs" />
