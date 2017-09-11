@@ -129,7 +129,9 @@ namespace DosBox.Command.Framework
 
         protected string GetParameterAt(int parameterIndex)
         {
-            return this.parameters[parameterIndex];
+            return parameterIndex < parameters.Count
+                ? this.parameters[parameterIndex]
+                : null;
         }
 
         public override string ToString()
