@@ -17,6 +17,8 @@ namespace DosBoxTest.Command.Library
         {
             // Check this filestructure in base class: crucial to understand the tests.
             this.CreateTestFileStructure();
+            commandInvoker.AddCommand(new CmdVer("ver", drive));
+
         }
 
         [TestMethod]
@@ -37,5 +39,20 @@ namespace DosBoxTest.Command.Library
             TestHelper.AssertContains("Frowin", testOutput.ToString());
             TestHelper.AssertContains("Axel", testOutput.ToString());
         }
+
+        [TestMethod]
+        public void CmdVer_InvalidParameter()
+        {
+          ExecuteCommand("ver /a");
+          TestHelper.AssertContains("invalid parameter", testOutput.ToString());
+        }
+
+        [TestMethod]
+        public void CmdVer_TooManyParameters()
+        {
+          ExecuteCommand("ver /w /s /s");
+          TestHelper.AssertContains("invalid parameter", testOutput.ToString());
+        }
+
     }
 }
