@@ -97,7 +97,7 @@ namespace DosBox.Command.Framework
         /// *Must be overwritten* by the concrete commands to implement the execution of the command.
         /// </summary>
         /// <param name="outputter">Must be used to printout any text.</param>
-        public abstract void Execute(IOutputter outputter);
+        public abstract bool Execute(IOutputter outputter);
 
         /// <summary>
         /// Returns true if the passed name and the command name fit.

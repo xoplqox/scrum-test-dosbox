@@ -50,7 +50,12 @@ namespace DosBox.Invoker
                     {
                         cmd.SetParameters(parameters);
                         if (cmd.CheckParameters(outputter))
-                            cmd.Execute(outputter);
+                        {
+                          if( cmd.Execute(outputter) )
+                          {
+                            writeToLog(command);
+                          }
+                        }
                         return;
                     }
                 }
@@ -62,6 +67,11 @@ namespace DosBox.Invoker
             {
                 outputter.PrintLine(e.Message);
             }
+        }
+
+        private void writeToLog(string command)
+        {
+          // throw new NotImplementedException();
         }
 
         #endregion

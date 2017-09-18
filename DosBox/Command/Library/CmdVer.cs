@@ -16,7 +16,7 @@ namespace DosBox.Command.Library
     }
 
 
-    public override void Execute(IOutputter outputter)
+    public override bool Execute(IOutputter outputter)
     {
       if( GetParameterCount() > 0 )
       {
@@ -28,16 +28,21 @@ namespace DosBox.Command.Library
           outputter.PrintLine("Caglar");
           outputter.PrintLine("Frowin");
           outputter.PrintLine("Axel");
+          return true;
         }
         else
         {
           outputter.PrintLine("invalid parameter");
+          return false;
         }
       }
       else
       {
         outputter.PrintLine("Microsoft Windows [Version 6.1.7601]");
+        return true;
       }
+
+      return false;
     }
   }
 }

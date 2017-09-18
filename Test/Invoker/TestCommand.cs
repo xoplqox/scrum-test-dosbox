@@ -34,9 +34,10 @@ namespace DosBoxTest.Invoker
             return parameters;
         }
 
-        public override void Execute(IOutputter IOutputter)
+        public override bool Execute(IOutputter IOutputter)
         {
             this.Executed = true;
+            return true;
         }
 
         protected override bool CheckNumberOfParameters(int number)

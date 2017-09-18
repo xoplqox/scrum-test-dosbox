@@ -52,11 +52,12 @@ namespace DosBox.Command.Library
             return (Directory)fsi;
         }
 
-        public override void Execute(IOutputter outputter)
+        public override bool Execute(IOutputter outputter)
         {
             PrintHeader(this.directoryToPrint, outputter);
             PrintContent(this.directoryToPrint.Content, outputter);
             PrintFooter(this.directoryToPrint, outputter);
+            return true;
         }
 
         private static void PrintHeader(Directory directoryToPrint, IOutputter outputter)

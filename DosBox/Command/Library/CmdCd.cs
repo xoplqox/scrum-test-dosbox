@@ -43,7 +43,7 @@ namespace DosBox.Command.Library
             }
         }
 
-        public override void Execute(IOutputter outputter)
+        public override bool Execute(IOutputter outputter)
         {
             if (GetParameterCount() == 0)
             {
@@ -53,6 +53,7 @@ namespace DosBox.Command.Library
             {
                 ChangeCurrentDirectory(this.destinationDirectory, this.Drive, outputter);
             }
+            return true;
         }
 
         private static void ChangeCurrentDirectory(Directory destinationDirectory, IDrive drive, IOutputter outputter)

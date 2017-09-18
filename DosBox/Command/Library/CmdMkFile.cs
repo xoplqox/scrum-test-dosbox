@@ -15,16 +15,21 @@ namespace DosBox.Command.Library
         {
         }
 
-        public override void Execute(IOutputter outputter)
+        public override bool Execute(IOutputter outputter)
         {
             string fileName = GetParameterAt(0);
             if (!string.IsNullOrEmpty(fileName))
             {
-                string fileContent = GetParameterAt(1);
-                File newFile = new File(fileName, fileContent ?? string.Empty);
-                this.Drive.CurrentDirectory.Add(newFile);
+              string fileContent = GetParameterAt(1);
+              File newFile = new File(fileName, fileContent ?? string.Empty);
+              this.Drive.CurrentDirectory.Add(newFile);
             }
-            else outputter.PrintLine("syntax of the command is incorrect");
+            else
+            {
+              outputter.PrintLine("syntax of the command is incorrect");
+              return false;
+            }
+            return true;
         }
     }
 }

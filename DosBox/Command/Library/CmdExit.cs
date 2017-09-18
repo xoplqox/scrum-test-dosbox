@@ -13,9 +13,9 @@ namespace DosBox.Command.Library
         {
         }
 
-        public override void Execute(IOutputter outputter)
+        public override bool Execute(IOutputter outputter)
         {
-            // throw new NotImplementedException();
+          return true;// throw new NotImplementedException();
         }
     }
 }
