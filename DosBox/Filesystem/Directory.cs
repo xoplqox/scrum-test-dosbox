@@ -45,7 +45,7 @@ namespace DosBox.Filesystem
           {
             if( i.Name.Equals( name, System.StringComparison.InvariantCultureIgnoreCase ) )
             {
-              throw new System.Exception("A subdierectory or file " + name + " already exists.");
+              throw new System.Exception("A subdirectory or file " + name + " already exists.");
               // return false;
 
             }
