@@ -18,5 +18,31 @@ namespace DosBoxTest.trace
             DosBox.trace.TraceUtils.CreateEmptyFile(fileName);
             Assert.IsTrue(File.Exists(fileName));
         }
+
+        [TestMethod]
+        public void WriteInFileSuccessful_SuccessTest()
+        {
+            string fileName = "testLog";
+            string content = "test writing \n test";
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+            DosBox.trace.TraceUtils.WriteInFile(fileName, content);
+
+            // Open the stream and read it back.
+
+            string s = "";
+            using (StreamReader sr = File.OpenText(fileName))
+            {
+                
+                while ((s += sr.ReadLine()) != null)
+                {
+                    
+
+                }
+            }
+            Assert.Equals(content,s);
+        }
     }
 }
