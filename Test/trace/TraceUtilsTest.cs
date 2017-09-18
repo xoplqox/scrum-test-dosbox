@@ -24,7 +24,7 @@ namespace DosBoxTest.trace
         public void WriteInFileSuccessful_SuccessTest()
         {
             string fileName = "testLog";
-            string content = "test writing \n test";
+            string content = "test writing test";
             if (File.Exists(fileName))
             {
                 File.Delete(fileName);
