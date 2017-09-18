@@ -58,12 +58,14 @@ namespace DosBox.Invoker
                             writeToLog(command);
                           }
                         }
-                        return false;
+                        break;
                     }
                 }
-
-                outputter.PrintLine("\'" + cmdName + "\' is not recognized as an internal or external command,");
-                outputter.PrintLine("operable program or batch file.");
+                if (!retVal)
+                {
+                    outputter.PrintLine("\'" + cmdName + "\' is not recognized as an internal or external command,");
+                    outputter.PrintLine("operable program or batch file.");
+                }
             }
             catch (Exception e)
             {
