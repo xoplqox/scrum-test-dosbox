@@ -36,6 +36,15 @@ namespace DosBoxTest.Command.Library
         }
 
         [TestMethod]
+        public void CmdMkDir_CreateNewDirectory_NewDirectoryAlreadyExists()
+        {
+            const string testDirName = "test1";
+            Assert.IsTrue(ExecuteCommand("mkdir " + testDirName));
+            Assert.IsFalse(ExecuteCommand("mkdir " + testDirName));
+            Assert.AreEqual(numbersOfDirectoriesBeforeTest + 1, drive.RootDirectory.GetNumberOfContainedDirectories());
+        }
+
+        [TestMethod]
         public void CmdMkDir_CreateNewDirectory_NewDirectoryIsAddedToCorrectLocation()
         {
             const string testDirName = "test1";
