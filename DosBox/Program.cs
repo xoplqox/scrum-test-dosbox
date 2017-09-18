@@ -27,6 +27,8 @@ namespace DosBox
         /// </summary>
         public static void Main()
         {
+            trace.TraceUtils.CreateEmptyFile("Trace");
+
             var config = new Configurator();
             config.ConfigurateSystem();
         }

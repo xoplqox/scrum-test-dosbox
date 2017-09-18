@@ -1,0 +1,5 @@
+C:\Users\ahmed.khanfir\Documents\psd schulung\scrum-test-dosbox\DosBox\obj\Debug\DosBox.exe
+C:\Users\ahmed.khanfir\Documents\psd schulung\scrum-test-dosbox\DosBox\obj\Debug\DosBox.pdb
+C:\Users\ahmed.khanfir\Documents\psd schulung\scrum-test-dosbox\DosBox\bin\Debug\DosBox.exe
+C:\Users\ahmed.khanfir\Documents\psd schulung\scrum-test-dosbox\DosBox\bin\Debug\DosBox.pdb
+C:\Users\ahmed.khanfir\Documents\psd schulung\scrum-test-dosbox\DosBox\obj\Debug\DosBox.csprojResolveAssemblyReference.cache
