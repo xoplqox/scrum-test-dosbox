@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using DosBoxTest.Helpers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,19 +31,19 @@ namespace DosBoxTest.trace
             }
             DosBox.trace.TraceUtils.WriteInFile(fileName, content);
 
+            String newContent = "";
             // Open the stream and read it back.
-
-            string s = "";
             using (StreamReader sr = File.OpenText(fileName))
             {
                 
-                while ((s += sr.ReadLine()) != null)
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
                 {
-                    
+                    newContent += s;
 
                 }
             }
-            Assert.Equals(content,s);
+            TestHelper.AssertContains(content, newContent);
         }
     }
 }
