@@ -77,5 +77,14 @@ namespace DosBoxTest.Command.Library
             Assert.AreEqual(numbersOfFilesBeforeTest, drive.CurrentDirectory.GetNumberOfContainedFiles());
             TestHelper.AssertContains("syntax of the command is incorrect", testOutput.ToString());
         }
+
+        [TestMethod]
+        public void CmdMkFile_NoParameters_CreateNoExistingFiles()
+        {
+            const string newFileName = "testFile";
+            ExecuteCommand("mkfile " + newFileName);
+            ExecuteCommand("mkfile " + newFileName);
+            Assert.AreEqual(numbersOfFilesBeforeTest + 1, drive.CurrentDirectory.GetNumberOfContainedFiles());
+        }
     }
 }
