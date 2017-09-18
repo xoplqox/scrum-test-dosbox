@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command\Framework\OutputterTest.cs" />
+    <Compile Include="Command\Library\CmdExcecuteTest.cs" />
     <Compile Include="Command\Library\CmdVerTest.cs" />
     <Compile Include="Helpers\Path.cs" />
     <Compile Include="Helpers\TestHelper.cs" />
