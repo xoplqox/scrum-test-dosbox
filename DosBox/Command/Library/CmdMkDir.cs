@@ -45,12 +45,13 @@ namespace DosBox.Command.Library
             return false;
         }
 
-        public override void Execute(IOutputter outputter)
+        public override bool Execute(IOutputter outputter)
         {
             for(int i=0 ; i<GetParameterCount() ; i++)
             {
                 CreateDirectory(GetParameterAt(i), this.Drive);
             }
+            return true;
         }
 
         private static void CreateDirectory(string newDirectoryName, IDrive drive)

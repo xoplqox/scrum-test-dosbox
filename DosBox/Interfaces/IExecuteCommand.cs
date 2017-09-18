@@ -12,6 +12,6 @@ namespace DosBox.Interfaces
         /// and returns all output via the outputter interface.
         /// <param name="command">String which is entered, containing the command and the parameters.</param>
         /// <param name="outputter">Implementation of the outputter interface to which the output text is sent.</param>
-        void ExecuteCommand(String command, IOutputter outputter);
+        bool ExecuteCommand(String command, IOutputter outputter);
     }
 }

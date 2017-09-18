@@ -60,11 +60,11 @@ namespace DosBoxTest.Command.Library
             numbersOfFilesBeforeTest = drive.RootDirectory.GetNumberOfContainedFiles();
         }
 
-        protected void ExecuteCommand(string commandLine)
+        protected bool ExecuteCommand(string commandLine)
         {
             if (this.commandInvoker == null)
                 this.commandInvoker = new CommandInvoker();
-            this.commandInvoker.ExecuteCommand(commandLine, testOutput);
+            return this.commandInvoker.ExecuteCommand(commandLine, testOutput);
         }
     }
 }

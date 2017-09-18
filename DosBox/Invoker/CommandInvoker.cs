@@ -37,8 +37,9 @@ namespace DosBox.Invoker
         /// </summary>
         /// <param name="command">string which is entered, containing the command and the parameters.</param>
         /// <param name="outputter">Implementation of the outputter interface to which the output text is sent.</param>
-        public void ExecuteCommand(string command, IOutputter outputter)
+        public bool ExecuteCommand(string command, IOutputter outputter)
         {
+            var retVal = false;
             string cmdName = ParseCommandName(command);
             List<string> parameters = ParseCommandParameters(command);
 
@@ -50,8 +51,14 @@ namespace DosBox.Invoker
                     {
                         cmd.SetParameters(parameters);
                         if (cmd.CheckParameters(outputter))
-                            cmd.Execute(outputter);
-                        return;
+                        {
+                          if ( cmd.Execute(outputter) )
+                          {
+                            retVal = true;
+                            writeToLog(command);
+                          }
+                        }
+                        return false;
                     }
                 }
 
@@ -60,8 +67,15 @@ namespace DosBox.Invoker
             }
             catch (Exception e)
             {
+                retVal = false;
                 outputter.PrintLine(e.Message);
             }
+            return retVal;
+        }
+
+        private void writeToLog(string command)
+        {
+          // throw new NotImplementedException();
         }
 
         #endregion
