@@ -43,9 +43,11 @@ namespace DosBox.Filesystem
         {
           foreach( FileSystemItem i in content )
           {
-            if( i.Name == name )
+            if( i.Name.Equals( name, System.StringComparison.InvariantCultureIgnoreCase ) )
             {
-              return false;
+              throw new System.Exception("A subdierectory or file " + name + " already exists.");
+              // return false;
+
             }
           }
           return true;
@@ -81,6 +83,10 @@ namespace DosBox.Filesystem
             }
 
             fileToAdd.Parent = this;
+          }
+          else
+          {
+            
           }
         }
 
