@@ -39,6 +39,18 @@ namespace DosBox.Filesystem
             return true;
         }
 
+        public bool isUnique( string name )
+        {
+          foreach( FileSystemItem i in content )
+          {
+            if( i.Name == name )
+            {
+              return false;
+            }
+          }
+          return true;
+        }
+
         /// <summary>
         /// Adds a new subdirectory to this directory.
         /// If the directory to add is already part of another directory structure,
@@ -46,24 +58,30 @@ namespace DosBox.Filesystem
         /// </summary>
         public void Add(Directory directoryToAdd)
         {
+          if (isUnique( directoryToAdd.Name ) )
+          {
             content.Add(directoryToAdd);
             if (HasAnotherParent(directoryToAdd))
             {
-                RemoveParent(directoryToAdd);
+              RemoveParent(directoryToAdd);
             }
 
             directoryToAdd.Parent = this;
+          }
         }
 
         public void Add(File fileToAdd)
         {
+          if (isUnique(fileToAdd.Name))
+          {
             content.Add(fileToAdd);
             if (fileToAdd.Parent != null)
             {
-                fileToAdd.Parent.content.Remove(fileToAdd);
+              fileToAdd.Parent.content.Remove(fileToAdd);
             }
 
             fileToAdd.Parent = this;
+          }
         }
 
         private static bool RemoveParent(FileSystemItem item)
